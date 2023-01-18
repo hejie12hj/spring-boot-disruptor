@@ -1,5 +1,7 @@
 package com.hj.config;
 
+import com.hj.core.DisruptorHandle;
+import com.hj.core.DisruptorProducer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
@@ -11,7 +13,23 @@ import java.util.concurrent.ThreadPoolExecutor;
  * @date: 2023/1/18
  * @time: 9:48 AM
  */
-public class ThreadPoolConfig {
+public class Config {
+
+
+    @Bean
+    DisruptorConfig disruptorConfig() {
+        return new DisruptorConfig();
+    }
+
+    @Bean
+    DisruptorProducer disruptorProducer() {
+        return new DisruptorProducer();
+    }
+    @Bean
+    DisruptorHandle disruptorHandle() {
+        return new DisruptorHandle();
+    }
+
 
     @Bean("disTaskExecutor")
     public Executor esTaskExecutor() {
